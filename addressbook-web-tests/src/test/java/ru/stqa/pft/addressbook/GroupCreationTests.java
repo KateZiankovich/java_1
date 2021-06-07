@@ -37,6 +37,7 @@ public class GroupCreationTests {
     logOut();
   }
 
+
   private void logOut() {
     wd.findElement(By.linkText("Logout")).click();
   }
@@ -64,7 +65,6 @@ public class GroupCreationTests {
   private void initGroupCreation() {
     wd.findElement(By.name("new")).click();
   }
-
 
   @AfterMethod(alwaysRun = true)
   public void tearDown() throws Exception {
