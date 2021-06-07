@@ -65,6 +65,7 @@ public class GroupCreationTests {
     wd.findElement(By.name("new")).click();
   }
 
+
   @AfterMethod(alwaysRun = true)
   public void tearDown() throws Exception {
     wd.quit();
