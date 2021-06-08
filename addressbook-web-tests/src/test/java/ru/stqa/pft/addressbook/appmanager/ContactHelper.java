@@ -20,15 +20,15 @@ public class ContactHelper extends HelperBase{
 
   public void fillContactForm(ContactData contactData) {
     type(By.name("firstname"),contactData.getFirstname());
-    click(By.name("theform"));
+    //click(By.name("theform"));
     type(By.name("middlename"),contactData.getMiddlename());
     type(By.name("lastname"),contactData.getLastname());
-    click(By.xpath("//div[@id='content']/form/label[4]"));
+    //click(By.xpath("//div[@id='content']/form/label[4]"));
     type(By.name("nickname"),contactData.getNickname());
     type(By.name("title"),contactData.getTitle());
     type(By.name("company"),contactData.getCompany());
     type(By.name("address"),contactData.getAddress());
-    click(By.xpath("//div[@id='content']/form/label[11]"));
+    //click(By.xpath("//div[@id='content']/form/label[11]"));
     type(By.name("home"),contactData.getHomephonenumber());
     type(By.name("mobile"),contactData.getMobilenumber());
     type(By.name("work"),contactData.getWorknumber());
@@ -41,5 +41,13 @@ public class ContactHelper extends HelperBase{
 
   public void gotoAddNew() {
    click(By.linkText("add new"));
+  }
+
+  public void clickEdit() {
+    click(By.xpath("//img[@alt='Edit']"));
+  }
+
+  public void clickUpdate() {
+    click(By.xpath("xpath=(//input[@name='update'])[2]"));
   }
 }
