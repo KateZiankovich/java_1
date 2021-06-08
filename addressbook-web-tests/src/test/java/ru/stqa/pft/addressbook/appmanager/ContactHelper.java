@@ -1,6 +1,7 @@
 package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
 import ru.stqa.pft.addressbook.model.ContactData;
 
@@ -48,6 +49,23 @@ public class ContactHelper extends HelperBase{
   }
 
   public void clickUpdate() {
-    click(By.xpath("xpath=(//input[@name='update'])[2]"));
+    click(By.name("update"));
+  }
+
+  public void chooseContact() {
+    click(By.name("selected[]"));
+  }
+
+  public void clickDelete() {
+    click(By.xpath("//input[@value='Delete']"));
+  }
+
+  public boolean acceptAlert() {
+    try {
+      wd.switchTo().alert();
+      return true;
+    } catch (NoAlertPresentException e) {
+      return false;
+    }
   }
 }
