@@ -40,6 +40,8 @@ public class ContactHelper extends HelperBase{
     type(By.name("email"),contactData.getEmail());
     type(By.name("email2"),contactData.getEmail2());
 
+
+
     if (creation) {
       new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
     } else {
@@ -74,5 +76,16 @@ public class ContactHelper extends HelperBase{
     } catch (NoAlertPresentException e) {
       return false;
     }
+  }
+
+  public void createContact(ContactData contact, boolean b) {
+    gotoAddNew();
+    fillContactForm(contact, b);
+    submitContactCreation();
+    returntoContactpage();
+  }
+
+  public boolean isThereAContact() {
+    return isElementPresent(By.name("selected[]"));
   }
 }
